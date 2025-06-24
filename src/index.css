@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
 :root {
     --primary-color: #6d28d9;
     --primary-hover: #5b21b6;
@@ -30,5 +32,3 @@ body,
     background-color: var(--background-color);
     color: var(--secondary-color);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
