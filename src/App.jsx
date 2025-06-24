@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
+import AuthProvider from './contexts/AuthContext';
+import useAuth from './contexts/useAuth';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './routes/Home';
