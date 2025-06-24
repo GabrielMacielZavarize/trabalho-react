@@ -18,19 +18,13 @@ const Navbar = () => {
                 <div>
                     <NavLink to="/" className="navbar-brand">GestorOne</NavLink>
                 </div>
-                {user ? (
-                    <div className="navbar-links-container">
-                        <span>Olá, {user.name}!</span>
-                        <NavLink to="/" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>Home</NavLink>
-                        <NavLink to="/services" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>Serviços</NavLink>
-                        <NavLink to="/users" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>Usuários</NavLink>
-                        <button onClick={handleLogout} className="navbar-logout-button">Sair</button>
-                    </div>
-                ) : (
-                    <div className="navbar-links-container">
-                        {/* Se não estiver logado, pode mostrar um link para o login */}
-                    </div>
-                )}
+                <div className="navbar-links-container">
+                    <span>Olá, {user.name}!</span>
+                    <NavLink to="/" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>Home</NavLink>
+                    <NavLink to="/services" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>Serviços</NavLink>
+                    <NavLink to="/users" className={({ isActive }) => isActive ? "navbar-link active" : "navbar-link"}>Usuários</NavLink>
+                    <button onClick={handleLogout} className="navbar-logout-button">Sair</button>
+                </div>
             </nav>
         </header>
     );
