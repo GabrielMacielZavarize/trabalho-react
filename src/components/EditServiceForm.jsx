@@ -24,7 +24,7 @@ const EditServiceForm = ({ service, onServiceUpdated, onCancel }) => {
         };
 
         try {
-            const response = await axios.put(`http://localhost:3001/services/${service.id}`, updatedService);
+            const response = await axios.put(`http://localhost:3002/services/${service.id}`, updatedService);
             onServiceUpdated(response.data);
         } catch (err) {
             setError('Ocorreu um erro ao atualizar o serviço.');

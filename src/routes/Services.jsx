@@ -2,17 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../assets/styles/Crud.css';
 import AddServiceForm from '../components/AddServiceForm';
+import EditServiceForm from '../components/EditServiceForm';
 
 const Services = () => {
     const [services, setServices] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const [editingService, setEditingService] = useState(null);
 
     useEffect(() => {
         const fetchServices = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/services');
+                const response = await axios.get('http://localhost:3002/services');
                 setServices(response.data);
             } catch (err) {
                 setError('Não foi possível carregar os serviços.');
@@ -30,10 +32,15 @@ const Services = () => {
         setIsFormVisible(false);
     };
 
+    const handleServiceUpdated = (updatedService) => {
+        setServices(services.map(s => s.id === updatedService.id ? updatedService : s));
+        setEditingService(null);
+    };
+
     const handleDelete = async (serviceId) => {
         if (window.confirm('Tem certeza que deseja excluir este serviço?')) {
             try {
-                await axios.delete(`http://localhost:3001/services/${serviceId}`);
+                await axios.delete(`http://localhost:3002/services/${serviceId}`);
                 setServices(services.filter(service => service.id !== serviceId));
             } catch (err) {
                 setError('Ocorreu um erro ao excluir o serviço.');
@@ -66,6 +73,14 @@ const Services = () => {
                 />
             )}
 
+            {editingService && (
+                <EditServiceForm
+                    service={editingService}
+                    onServiceUpdated={handleServiceUpdated}
+                    onCancel={() => setEditingService(null)}
+                />
+            )}
+
             <table className="crud-table">
                 <thead>
                     <tr>
@@ -86,7 +101,7 @@ const Services = () => {
                             <td>{service.duration}</td>
                             <td>{service.category}</td>
                             <td className="actions-cell">
-                                <button className="edit-button">Editar</button>
+                                <button className="edit-button" onClick={() => setEditingService(service)}>Editar</button>
                                 <button className="delete-button" onClick={() => handleDelete(service.id)}>Excluir</button>
                             </td>
                         </tr>

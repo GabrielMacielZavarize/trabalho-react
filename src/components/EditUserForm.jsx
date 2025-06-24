@@ -18,20 +18,18 @@ const EditUserForm = ({ user, onUserUpdated, onCancel }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Constrói o objeto de usuário atualizado
         const updatedUser = {
             name: formData.name,
             email: formData.email,
             role: formData.role,
         };
 
-        // Apenas adiciona a senha ao objeto se ela foi alterada
         if (formData.password) {
             updatedUser.password = formData.password;
         }
 
         try {
-            const response = await axios.patch(`http://localhost:3001/users/${user.id}`, updatedUser);
+            const response = await axios.patch(`http://localhost:3003/users/${user.id}`, updatedUser);
             onUserUpdated(response.data);
         } catch (err) {
             setError('Ocorreu um erro ao atualizar o usuário.');

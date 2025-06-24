@@ -1,26 +1,10 @@
 {
-  "users": [
-    {
-      "id": "1",
-      "name": "Admin",
-      "email": "admin@example.com",
-      "password": "password123",
-      "role": "admin"
-    },
-    {
-      "id": "2",
-      "name": "Fulano de Tal",
-      "email": "fulano@example.com",
-      "password": "password456",
-      "role": "user"
-    }
-  ],
   "services": [
     {
       "id": "3",
       "name": "Consultoria em UX/UI",
       "description": "Análise e melhoria da experiência do usuário e interface.",
-      "price": 1200,
+      "price": 1500,
       "duration": "15 dias",
       "category": "Design"
     }

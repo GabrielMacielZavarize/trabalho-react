@@ -26,8 +26,8 @@ const AddServiceForm = ({ onServiceAdded, onCancel }) => {
         };
 
         try {
-            const response = await axios.post('http://localhost:3001/services', newService);
-            onServiceAdded(response.data); // Chama a função do pai para atualizar a lista
+            const response = await axios.post('http://localhost:3002/services', newService);
+            onServiceAdded(response.data); 
         } catch (err) {
             setError('Ocorreu um erro ao adicionar o serviço.');
             console.error(err);

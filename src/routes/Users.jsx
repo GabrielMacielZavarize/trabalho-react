@@ -14,7 +14,7 @@ const Users = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/users');
+                const response = await axios.get('http://localhost:3003/users');
                 setUsers(response.data);
             } catch (err) {
                 setError('Não foi possível carregar os usuários.');
@@ -40,7 +40,7 @@ const Users = () => {
     const handleDelete = async (userId) => {
         if (window.confirm('Tem certeza que deseja excluir este usuário?')) {
             try {
-                await axios.delete(`http://localhost:3001/users/${userId}`);
+                await axios.delete(`http://localhost:3003/users/${userId}`);
                 setUsers(users.filter(user => user.id !== userId));
             } catch (err) {
                 setError('Ocorreu um erro ao excluir o usuário.');

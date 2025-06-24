@@ -1,18 +1,60 @@
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import Users from './pages/Users';
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './routes/Home';
+import Services from './routes/Services';
+import Users from './routes/Users';
+import Login from './routes/Login';
+import './assets/styles/Layout.css';
+import './assets/styles/Navbar.css';
+
+const AppLayout = () => (
+  <div className="layout">
+    <Navbar />
+    <main className="layout-main">
+      <Outlet />
+    </main>
+    <Footer />
+  </div>
+);
+
+const AppRoutes = () => {
+  const { user } = useAuth();
+
+  const router = createBrowserRouter([
+    {
+      path: '/login',
+      element: user ? <Navigate to="/" /> : <Login />,
+    },
+    {
+      path: '/',
+      element: user ? <AppLayout /> : <Navigate to="/login" />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: 'services',
+          element: <Services />,
+        },
+        {
+          path: 'users',
+          element: <Users />,
+        },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
+};
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="services" element={<Services />} />
-        <Route path="users" element={<Users />} />
-      </Route>
-    </Routes>
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
   );
 }
 

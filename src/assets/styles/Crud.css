@@ -1,5 +1,5 @@
 .crud-container {
-    padding: 2rem;
+    padding: 2rem 0;
 }
 
 .crud-header {
@@ -10,44 +10,56 @@
 }
 
 .crud-title {
-    font-size: 2rem;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
 }
 
 .add-button {
-    background-color: #3b82f6;
-    color: white;
-    font-weight: bold;
-    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 0.8rem 1.6rem;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+    box-shadow: var(--shadow);
 }
 
 .add-button:hover {
-    background-color: #2563eb;
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
 }
 
 .crud-table {
     width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--card-background);
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
     overflow: hidden;
 }
 
 .crud-table th,
 .crud-table td {
-    padding: 1rem;
+    padding: 1.2rem 1.5rem;
     text-align: left;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .crud-table th {
     background-color: #f9fafb;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.crud-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .crud-table tbody tr:hover {
@@ -56,38 +68,102 @@
 
 .actions-cell {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.8rem;
 }
 
 .edit-button,
 .delete-button {
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border: none;
-    border-radius: 4px;
-    color: white;
+    border-radius: var(--border-radius);
+    color: var(--text-color);
     cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease;
 }
 
 .edit-button {
-    background-color: #f59e0b;
+    background-color: var(--warning-color);
 }
 
 .edit-button:hover {
-    background-color: #d97706;
+    background-color: #b45309;
+    /* Darker warning */
+    transform: translateY(-2px);
 }
 
 .delete-button {
-    background-color: #ef4444;
+    background-color: var(--danger-color);
 }
 
 .delete-button:hover {
-    background-color: #dc2626;
+    background-color: #b91c1c;
+    /* Darker danger */
+    transform: translateY(-2px);
 }
 
 .error-message {
-    color: #ef4444;
+    color: var(--danger-color);
     background-color: #fee2e2;
     padding: 1rem;
-    border: 1px solid #ef4444;
-    border-radius: 4px;
+    border: 1px solid var(--danger-color);
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+    .crud-container {
+        padding: 1rem 0.2rem;
+    }
+
+    .crud-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+    }
+
+    .crud-title {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .add-button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.7rem 0.5rem;
+    }
+
+    .crud-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        font-size: 0.95rem;
+    }
+
+    .crud-table thead,
+    .crud-table tbody,
+    .crud-table tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .crud-table th,
+    .crud-table td {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.95rem;
+        word-break: break-word;
+    }
+
+    .actions-cell {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .edit-button,
+    .delete-button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.7rem 0.5rem;
+    }
 }
