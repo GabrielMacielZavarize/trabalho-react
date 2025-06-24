@@ -1,12 +1,44 @@
 {
   "services": [
     {
+      "id": "1",
+      "name": "Desenvolvimento de Website",
+      "description": "Criação de site institucional responsivo e otimizado para SEO.",
+      "price": 3000,
+      "duration": "30 dias",
+      "category": "Desenvolvimento"
+    },
+    {
+      "id": "2",
+      "name": "Manutenção de Sistemas",
+      "description": "Ajustes, correções e atualizações em sistemas já existentes.",
+      "price": 800,
+      "duration": "7 dias",
+      "category": "Suporte"
+    },
+    {
       "id": "3",
       "name": "Consultoria em UX/UI",
       "description": "Análise e melhoria da experiência do usuário e interface.",
       "price": 1500,
       "duration": "15 dias",
       "category": "Design"
+    },
+    {
+      "id": "4",
+      "name": "Implementação de E-commerce",
+      "description": "Desenvolvimento de loja virtual com integração de pagamentos.",
+      "price": 5000,
+      "duration": "40 dias",
+      "category": "Desenvolvimento"
+    },
+    {
+      "id": "5",
+      "name": "Treinamento em Ferramentas Digitais",
+      "description": "Capacitação de equipes para uso de ferramentas digitais e produtividade.",
+      "price": 1200,
+      "duration": "5 dias",
+      "category": "Educação"
     }
   ]
 }

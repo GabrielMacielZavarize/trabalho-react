@@ -12,10 +12,6 @@ const AddServiceForm = ({ onServiceAdded, onCancel }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!name || !description || !price || !duration || !category) {
-            setError('Por favor, preencha todos os campos.');
-            return;
-        }
 
         const newService = {
             name,
@@ -41,23 +37,23 @@ const AddServiceForm = ({ onServiceAdded, onCancel }) => {
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
                     <label>Nome:</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
                 </div>
                 <div className="form-group">
                     <label>Descrição:</label>
-                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
                 </div>
                 <div className="form-group">
                     <label>Preço:</label>
-                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
                 </div>
                 <div className="form-group">
                     <label>Duração:</label>
-                    <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} />
+                    <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} required />
                 </div>
                 <div className="form-group">
                     <label>Categoria:</label>
-                    <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
+                    <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
                 </div>
                 <div className="form-actions">
                     <button type="submit" className="submit-button">Salvar</button>

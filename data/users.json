@@ -9,17 +9,31 @@
     },
     {
       "id": "2",
-      "name": "gabriel",
+      "name": "Gabriel",
       "email": "gabrielmzavarize@gmail.com",
       "password": "12345678",
       "role": "user"
     },
     {
-      "id": "14f9",
-      "name": "Alexandre",
-      "email": "Alexandre@gmail.com",
+      "id": "3",
+      "name": "Maria Souza",
+      "email": "maria.souza@gmail.com",
       "password": "12345678",
-      "role": "admin"
+      "role": "user"
+    },
+    {
+      "id": "4",
+      "name": "João Silva",
+      "email": "joao.silva@gmail.com",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "5",
+      "name": "Ana Oliveira",
+      "email": "ana.oliveira@gmail.com",
+      "password": "12345678",
+      "role": "user"
     }
   ]
 }
